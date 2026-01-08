@@ -18,6 +18,6 @@ export default defineConfig({
     assetsInlineLimit: 0,
   },
   ssr: {
-    noExternal: ['react', 'react-dom'],
+    noExternal: true,
   },
 });
