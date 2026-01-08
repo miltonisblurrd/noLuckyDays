@@ -18,13 +18,6 @@ export default defineConfig({
     assetsInlineLimit: 0,
   },
   ssr: {
-    optimizeDeps: {
-      include: ['react', 'react-dom', 'react/jsx-runtime'],
-    },
-  },
-  resolve: {
-    alias: {
-      'react/jsx-runtime': 'react/jsx-runtime.js',
-    },
+    noExternal: ['react', 'react-dom'],
   },
 });
