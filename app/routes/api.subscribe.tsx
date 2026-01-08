@@ -1,6 +1,6 @@
 import {json, type ActionFunctionArgs} from '@shopify/remix-oxygen';
 
-export async function action({request}: ActionFunctionArgs) {
+export async function action({request, context}: ActionFunctionArgs) {
   if (request.method !== 'POST') {
     return json({success: false, error: 'Method not allowed'}, {status: 405});
   }
@@ -13,7 +13,7 @@ export async function action({request}: ActionFunctionArgs) {
     }
 
     // Get Omnisend API key from environment
-    const OMNISEND_API_KEY = process.env.OMNISEND_API_KEY;
+    const OMNISEND_API_KEY = context.env.OMNISEND_API_KEY;
 
     if (!OMNISEND_API_KEY) {
       console.error('OMNISEND_API_KEY not configured');

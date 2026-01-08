@@ -213,9 +213,9 @@ const REMOVE_FROM_CART_MUTATION = `#graphql
   }
 `;
 
-export async function loader() {
-  const STORE_DOMAIN = process.env.PUBLIC_STORE_DOMAIN;
-  const STOREFRONT_TOKEN = process.env.PUBLIC_STOREFRONT_API_TOKEN;
+export async function loader({context}: {context: {env: Record<string, string>}}) {
+  const STORE_DOMAIN = context.env.PUBLIC_STORE_DOMAIN;
+  const STOREFRONT_TOKEN = context.env.PUBLIC_STOREFRONT_API_TOKEN;
   
   if (!STORE_DOMAIN || !STOREFRONT_TOKEN) {
     throw new Error('Missing Shopify credentials in environment variables');
