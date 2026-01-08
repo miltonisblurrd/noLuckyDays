@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0,
   },
-  ssr: {
-    noExternal: true,
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
   },
 });
