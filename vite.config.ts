@@ -17,6 +17,9 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0,
   },
+  ssr: {
+    noExternal: ['react', 'react-dom', '@remix-run/react', 'isbot'],
+  },
   define: {
     'process.env.NODE_ENV': JSON.stringify('production'),
   },
